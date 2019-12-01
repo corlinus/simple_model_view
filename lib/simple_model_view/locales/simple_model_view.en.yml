@@ -1,0 +1,9 @@
+en:
+  simple_model_view:
+    formats:
+      boolean:
+        "true": 'Yes'
+        "false": 'No'
+      integer: '%d'
+      float: '%.5f'
+      empty: 'empty'

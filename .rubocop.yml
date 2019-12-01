@@ -1,0 +1,130 @@
+# This config aims:
+#
+#   - compact, readable and reusable source,
+#   - consistent constructions (same things stay the same in different context),
+#   - consistent indentation,
+#   - avoiding unnecessary lines in diffs
+#   - wise usage of Ruby features and expressiveness.
+
+require: rubocop-performance
+
+AllCops:
+  TargetRubyVersion: 2.3
+  Exclude:
+  - bin/spring
+  - db/schema.rb
+  - tmp/**/*
+  - node_modules/**/*
+
+# Disable, till rubocop supports combination of styles.
+# Use one of this styles where appropriate, keep it clean, compact and readable.
+Layout/ArgumentAlignment: {Enabled: false}
+
+# Allow bot key & table.
+# https://github.com/rubocop-hq/rubocop/issues/6410
+Layout/HashAlignment: {Enabled: false}
+
+# Breaks
+#
+#   I18n.t(key,
+#     param: val,
+#     # ...
+#   )
+Layout/ClosingParenthesisIndentation: {Enabled: false}
+
+# Allows copy-pasting to repl.
+Layout/DotPosition: {EnforcedStyle: trailing}
+
+# Unnecessary, and less readable with small methods.
+Layout/EmptyLineAfterGuardClause: {Enabled: false}
+
+# Args alignment is prefered for migrations.
+Layout/ExtraSpacing:
+  Exclude:
+  - db/migrate/*
+
+Layout/FirstArgumentIndentation: {EnforcedStyle: consistent}
+Layout/FirstHashElementIndentation: {EnforcedStyle: consistent}
+Layout/FirstArrayElementIndentation: {EnforcedStyle: consistent}
+
+# `new_line` does not work with
+#
+#   call(:x, %w[
+#     ...
+#   ])
+Layout/MultilineMethodCallBraceLayout: {Enabled: false}
+# Same as Layout/ClosingParenthesisIndentation
+Layout/MultilineMethodCallIndentation: {EnforcedStyle: indented}
+Layout/MultilineOperationIndentation: {EnforcedStyle: indented}
+
+Layout/SpaceInsideHashLiteralBraces: {EnforcedStyle: no_space}
+
+# Keep everything consistent.
+Layout/SpaceBeforeBlockBraces: {EnforcedStyleForEmptyBraces: space}
+
+# Offences named scopes and `expect {}.to change {}`.
+Lint/AmbiguousBlockAssociation: {Enabled: false}
+
+# Metrics for good perception and expressiveness.
+Metrics/AbcSize:
+  Max: 25
+  Exclude:
+  - db/migrate/*
+
+# Other metrics are just enough.
+# This one offences all specs, routes and some initializers.
+Metrics/BlockLength: {Enabled: false}
+Metrics/ClassLength:
+  CountComments: false
+  Max: 250
+Metrics/CyclomaticComplexity: {Max: 7}
+Metrics/LineLength: {Max: 130}
+Metrics/MethodLength:
+  Max: 30
+  Exclude:
+  - db/migrate/*
+Metrics/ParameterLists: {CountKeywordArgs: false}
+
+Naming/VariableNumber: {EnforcedStyle: snake_case}
+Naming/MemoizedInstanceVariableName: {EnforcedStyleForLeadingUnderscores: optional}
+Naming/MethodParameterName: {MinNameLength: 2}
+
+Style/Alias: {EnforcedStyle: prefer_alias_method}
+
+# Controllers and helpers does not require to be scoped.
+Style/ClassAndModuleChildren:
+  Exclude:
+  - app/controllers/**/*
+  - app/helpers/**/*
+
+# Don't require documentation.
+Style/Documentation: {Enabled: false}
+
+# Consistent to other definitions.
+Style/EmptyMethod: {EnforcedStyle: expanded}
+
+# Does not work with strftime templates and other strings
+# that are not about to be formated with `format`.
+Style/FormatStringToken: {Enabled: false}
+
+# Modifiers are less readable sometimes
+Style/IfUnlessModifier: {Enabled: false}
+
+Style/Lambda: {EnforcedStyle: literal}
+
+Style/MixinUsage:
+  Exclude:
+    - bin/setup
+    - bin/update
+
+# `module_function` & `extend self` has different purpose. Use wisely.
+Style/ModuleFunction: {Enabled: false}
+
+Style/RescueStandardError: {EnforcedStyle: implicit}
+Style/SignalException: {EnforcedStyle: only_raise}
+
+# Does not work well with **options and single args.
+Style/TrailingCommaInArguments: {Enabled: false}
+
+Style/TrailingCommaInArrayLiteral: {EnforcedStyleForMultiline: consistent_comma}
+Style/TrailingCommaInHashLiteral: {EnforcedStyleForMultiline: consistent_comma}
