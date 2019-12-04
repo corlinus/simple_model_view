@@ -32,8 +32,8 @@ module SimpleModelView
       return @collection_class unless @collection_class.nil?
 
       @collection_class =
-        if defined?(ActiveRecord::Relation) && collection < ActiveRecord::Relation
-          collection.new
+        if defined?(ActiveRecord::Relation) && collection.class < ActiveRecord::Relation
+          collection.new.class
         else
           false
         end
