@@ -20,7 +20,7 @@ module SimpleModelView
       end
     end
 
-    def collection_table(collection, *args, &block)
+    def collection_table(collection, *args)
       builder = SimpleModelView::CollectionTableBuilder.new template, collection, *args
 
       template.content_tag :table, class: :table do

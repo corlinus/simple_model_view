@@ -77,13 +77,16 @@ Metrics/BlockLength: {Enabled: false}
 Metrics/ClassLength:
   CountComments: false
   Max: 250
-Metrics/CyclomaticComplexity: {Max: 7}
+Metrics/CyclomaticComplexity: {Max: 11}
 Metrics/LineLength: {Max: 130}
 Metrics/MethodLength:
   Max: 30
   Exclude:
   - db/migrate/*
+Metrics/ModuleLength:
+  Max: 200
 Metrics/ParameterLists: {CountKeywordArgs: false}
+Metrics/PerceivedComplexity: {Max: 11}
 
 Naming/VariableNumber: {EnforcedStyle: snake_case}
 Naming/MemoizedInstanceVariableName: {EnforcedStyleForLeadingUnderscores: optional}

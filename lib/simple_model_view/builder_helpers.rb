@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module SimpleModelView
+module SimpleModelView # rubocop:disable
   module BuilderHelpers
     def format(value, type, **options)
       return if value.nil?
@@ -10,7 +10,7 @@ module SimpleModelView
 
     private
 
-    def add_type_specific_class(value, type) # rubocop:disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
+    def add_type_specific_class(value, type)
       return if value.nil?
 
       case type
@@ -49,7 +49,7 @@ module SimpleModelView
       end.keys.join(' ')
     end
 
-    def autodetect_value_type(value) # rubocop:disable Metrics/CyclomaticComplexity
+    def autodetect_value_type(value)
       case value
       when Float
         :float

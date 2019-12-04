@@ -250,7 +250,7 @@ RSpec.describe SimpleModelView::ResourceTableBuilder, type: :helper do
 
       it 'when give type' do
         subject.row(:none, as: :boolean)
-        expect(formatter).to have_received(:call).with(true, :boolean, {:as=>:boolean})
+        expect(formatter).to have_received(:call).with(true, :boolean, as: :boolean)
       end
 
       it 'when autudetect type and give format' do

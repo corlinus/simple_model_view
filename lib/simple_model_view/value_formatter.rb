@@ -58,7 +58,7 @@ module SimpleModelView
     end
 
     def format_string
-      value
+      value.to_s
     end
 
     private
