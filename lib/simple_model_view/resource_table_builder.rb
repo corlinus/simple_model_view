@@ -67,7 +67,9 @@ module SimpleModelView
           **merge_html_attrs(default_label_html, label_html))
 
         block_concat do
-          template.content_tag :td, yield, **merge_html_attrs(default_value_html, value_html)
+          template.content_tag :td, nil, **merge_html_attrs(default_value_html, value_html) do
+            yield
+          end
         end
       end
     end
