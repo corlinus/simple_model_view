@@ -57,6 +57,17 @@ module SimpleModelView
       end
     end
 
+    def actions(*_args, **options)
+      template.content_tag(:tr) do
+        template.concat template.content_tag(:th, options[:title])
+        block_concat do
+          template.content_tag(:td) do
+            yield object if block_given?
+          end
+        end
+      end
+    end
+
     private
 
     attr_reader :template

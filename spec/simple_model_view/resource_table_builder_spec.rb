@@ -260,4 +260,26 @@ RSpec.describe SimpleModelView::ResourceTableBuilder, type: :helper do
       end
     end
   end
+
+  describe '#actions' do
+    let(:test_object) { Object.new }
+    subject { described_class.new(helper, test_object) }
+
+    it 'renders actions cell' do
+      expect(subject.actions).to eq('<tr><th></th><td></td></tr>')
+    end
+
+    it 'renders actions cell with title' do
+      expect(subject.actions(title: 'Actions')).to eq('<tr><th>Actions</th><td></td></tr>')
+    end
+
+    it 'yeilds once if block given' do
+      expect { |b| subject.actions(header_html: {class: 'th'}, &b) }.to yield_control.once
+    end
+
+    it 'passes object to block if block given' do
+      expect { |b| subject.actions(header_html: {class: 'th'}, &b) }.
+        to yield_with_args(test_object)
+    end
+  end
 end
