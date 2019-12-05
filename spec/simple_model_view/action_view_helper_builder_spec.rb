@@ -11,7 +11,7 @@ RSpec.describe SimpleModelView::ActionViewHelperBuilder, type: :helper do
         subject.resource_table(test_object) do |t|
           t.row :id
         end
-      ).to eq '<table class="table"><tbody>'\
+      ).to eq '<table><tbody>'\
         '<tr class="id"><th>Id</th><td>123</td></tr>'\
         '</tbody></table>'
     end
@@ -23,7 +23,7 @@ RSpec.describe SimpleModelView::ActionViewHelperBuilder, type: :helper do
         subject.collection_table([test_object]) do |t|
           t.column :id
         end
-      ).to eq '<table class="table">'\
+      ).to eq '<table>'\
         '<thead><tr><th>Id</th></tr></thead>'\
         '<tbody><tr><td class="id">123</td></tr></tbody>'\
         '</table>'

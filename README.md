@@ -16,6 +16,26 @@ Or install it yourself as:
 
     $ gem install simple_model_view
 
+## Configuration
+
+  In `config/initializers/simple_model_view.rb` file following options are available
+
+    SimpleModelView.setup do |config|
+      # set initial html attributes for collection table
+      config.collection_table_html = {}
+      config.collection_header_html = {}
+      config.collection_wrapper_html = {}
+
+      # set initial html attributes for resource table
+      config.resource_table_html = {}
+      config.resource_wrapper_html = {}
+      config.resource_label_html = {}
+      config.resource_value_html = {}
+
+      # set formatter class
+      config.formatter = SimpleModelView::ValueFormatter
+    end
+
 ## Usage
 
 SimpleModelView provides you two main helpers

@@ -5,7 +5,7 @@ module SimpleModelView
     include SimpleModelView::TemplateHelpers
     include SimpleModelView::BuilderHelpers
 
-    def initialize(template, object, *_args, formatter: SimpleModelView::ValueFormatter)
+    def initialize(template, object, *_args, formatter: SimpleModelView.formatter)
       @template = template
       @object = object
       @formatter = formatter
@@ -85,17 +85,16 @@ module SimpleModelView
       end
     end
 
-    # TODO: gem configuration to be used
     def default_wrapper_html
-      {}
+      SimpleModelView.resource_wrapper_html
     end
 
     def default_label_html
-      {}
+      SimpleModelView.resource_label_html
     end
 
     def default_value_html
-      {}
+      SimpleModelView.resource_value_html
     end
   end
 end

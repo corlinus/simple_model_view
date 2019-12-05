@@ -39,9 +39,8 @@ module SimpleModelView
         end
     end
 
-    # TODO: gem configuration to be used
     def default_header_html
-      {}
+      SimpleModelView.collection_header_html
     end
   end
 end
