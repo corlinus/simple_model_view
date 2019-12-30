@@ -1,3 +1,7 @@
+## 0.1.4
+  * Fixed bug with rendering collection with block
+  * Updated rack to 2.0.8
+
 ## 0.1.3
   * Added configuration feature.
 
