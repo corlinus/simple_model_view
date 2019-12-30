@@ -119,7 +119,9 @@ module SimpleModelView # rubocop:disable
     def render_collection(collection)
       template.content_tag :ul do
         collection.each do |el|
-          template.concat(template.content_tag(:li, (yield el)))
+          block_concat do
+            template.content_tag(:li) { yield el }
+          end
         end
       end
     end

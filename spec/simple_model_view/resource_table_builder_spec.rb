@@ -188,7 +188,7 @@ RSpec.describe SimpleModelView::ResourceTableBuilder, type: :helper do
       ).to include('float positive')
     end
 
-    it 'when type_specific_class on add custom class, value is nil' do
+    it 'when type_specific_class on and custom class, value is nil' do
       expect(
         subject.row(
           :nil_val,
