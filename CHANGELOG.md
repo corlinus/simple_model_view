@@ -1,3 +1,7 @@
+## 0.1.5
+  * no_blank_block options is added
+  * translation for empty span
+
 ## 0.1.4
   * Fixed bug with rendering collection with block
   * Updated rack to 2.0.8
