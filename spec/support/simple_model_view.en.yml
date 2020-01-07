@@ -1,5 +1,6 @@
 en:
   simple_model_view:
+    empty: 'empty'
     formats:
       boolean:
         "true": 'Yes'
@@ -7,7 +8,6 @@ en:
       integer: '%d'
       float:
         price: '%.2f'
-      empty: 'empty'
   time:
     formats:
       date_month_year_concise: '%d-%m-%y'

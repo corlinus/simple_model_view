@@ -7,7 +7,7 @@ module SimpleModelView
     end
 
     def blank_span
-      template.content_tag :span, 'empty', class: :empty
+      template.content_tag :span, I18n.t('simple_model_view.empty'), class: :empty
     end
 
     def merge_html_attrs(default, input)
