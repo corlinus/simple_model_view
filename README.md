@@ -95,6 +95,8 @@ Renders model attributes table using simple helpers.
 
     `<%= t.row :price, format: '%.2f' %>`
 
+* `no_blank_block` if `true` it will render blank span instead of block for `nil` value
+
 ### Options for `row`
 
 * `label_html` is a hash of html attributes to be added to label (th tag)

@@ -110,6 +110,16 @@ RSpec.describe SimpleModelView::CollectionTableRowBuilder, type: :helper do
         to eq("<td class=\"string\"><i>#{test_object.name}</i></td>")
     end
 
+    it 'renders block for nil value' do
+      expect(subject.column(:nil_val) { |x| helper.content_tag(:i, x) }).
+        to eq('<td class="object"><i></i></td>')
+    end
+
+    it 'does not render block with no_blank_block for nil value' do
+      expect(subject.column(:nil_val, no_blank_block: true) { |x| helper.content_tag(:i, x) }).
+        to eq('<td class="object"><span class="empty">empty</span></td>')
+    end
+
     it 'renders block for collection' do
       expect(subject.column(:collection_val) { |x| helper.content_tag(:i, x) }).
         to eq('<td class="collection"><ul><li><i>name</i></li><li><i>surename</i>'\

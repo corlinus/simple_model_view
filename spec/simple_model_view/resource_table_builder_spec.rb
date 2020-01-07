@@ -215,6 +215,16 @@ RSpec.describe SimpleModelView::ResourceTableBuilder, type: :helper do
         to eq("<tr class=\"string\"><th>Name</th><td><i>#{test_object.name}</i></td></tr>")
     end
 
+    it 'renders block for nil value' do
+      expect(subject.row(:nil_val) { |x| helper.content_tag(:i, x) }).
+        to eq('<tr class="object"><th>Name</th><td><i></i></td></tr>')
+    end
+
+    it 'does not render block with no_blank_block for nil value' do
+      expect(subject.row(:nil_val, no_blank_block: true) { |x| helper.content_tag(:i, x) }).
+        to eq('<tr class="object"><th>Name</th><td><span class="empty">empty</span></td></tr>')
+    end
+
     it 'renders block for collection' do
       expect(subject.row(:collection_val) { |x| helper.content_tag(:i, x) }).
         to eq('<tr class="collection"><th>Name</th><td><ul><li><i>name</i></li><li><i>surename</i>'\

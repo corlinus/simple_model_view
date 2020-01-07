@@ -110,7 +110,10 @@ module SimpleModelView # rubocop:disable
     end
 
     def format_value_or_block(value, type, **options, &block)
-      return yield value if block
+      if block
+        return blank_span if value.nil? && options[:no_blank_block]
+        return yield value
+      end
       return blank_span if value.nil?
 
       format value, type, **options
