@@ -5,10 +5,19 @@ module SimpleModelView # rubocop:disable
     def format(value, type, **options)
       return if value.nil?
 
-      formatter.new.call value, type, options
+      case type
+      when :html
+        render_html value, options.except(:as)
+      else
+        formatter.new.call value, type, options
+      end
     end
 
     private
+
+    def render_html(value, **options)
+      template.simple_format value, **options
+    end
 
     def add_type_specific_class(value, type)
       return if value.nil?

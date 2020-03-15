@@ -123,6 +123,11 @@ RSpec.describe SimpleModelView::ResourceTableBuilder, type: :helper do
         '<tr class="string"><th>Name</th><td>true</td></tr>')
     end
 
+    it 'renders html with simple_format helper if `as: :html` is passed' do
+      expect(subject.row(:name, as: :html, class: 'foo')).
+        to include('<p class="foo">Some Name</p>')
+    end
+
     it 'when value is a Time with fromat' do
       expect(
         subject.row(

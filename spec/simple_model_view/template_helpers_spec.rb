@@ -32,7 +32,7 @@ RSpec.describe SimpleModelView::TemplateHelpers do
       expect(subject.merge_html_attrs({class: 'blue', data: {a: 1, b: 2}},
         class: %i[blue integer], data: {b: 3, c: 4}, as: :integer)).to eq(
           class: ['blue', :blue, :integer], data: {a: 1, b: 3, c: 4}, as: :integer
-          )
+        )
     end
   end
 end

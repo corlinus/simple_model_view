@@ -41,10 +41,6 @@ module SimpleModelView
       value_format 'float'
     end
 
-    def format_html
-      raise NotImplementedError, '`html` is not implemented yet'
-    end
-
     def format_md
       raise NotImplementedError, '`md` is not implemented yet'
     end

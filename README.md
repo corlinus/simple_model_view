@@ -106,6 +106,19 @@ Renders model attributes table using simple helpers.
 
 * `header_html` is a hash of html attributes to be added to table header (th tag)
 
+### Value types
+
+    id
+    string
+    integer
+    float
+    boolean
+    date
+    time
+    inspect # calls inspect
+    object # synonym for string for now
+    html
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
