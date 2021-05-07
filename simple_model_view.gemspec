@@ -39,7 +39,7 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency 'bundler', '~> 2.0'
   spec.add_development_dependency 'byebug', '~> 11.0.0'
-  spec.add_development_dependency 'rake', '~> 10.0'
+  spec.add_development_dependency 'rake', '~> 13.0'
   spec.add_development_dependency 'rspec-rails', '~> 3.9'
   spec.add_development_dependency 'rubocop', '~> 0.77.0'
   spec.add_development_dependency 'rubocop-performance', '~> 1.5.1'
